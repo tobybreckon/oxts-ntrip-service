@@ -1,0 +1,38 @@
+[Unit]
+Description=NTRIP Client Service
+Documentation=https://github.com/nunojpg/ntripclient
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/ntripclient/ntripclient.env
+
+ExecStart=/opt/ntripclient/ntripclient \
+    -s ${NTRIP_SERVER} \
+    -r ${NTRIP_PORT} \
+    -u ${NTRIP_USER} \
+    -p ${NTRIP_PASS} \
+    -m ${NTRIP_MOUNTPOINT} \
+    -D ${NTRIP_SERIAL_DEV} \
+    -B ${NTRIP_BAUD}
+
+# Restart the service if it crashes or exits unexpectedly
+Restart=on-failure
+RestartSec=1s
+
+# Run as a non-privileged user (optional but recommended)
+User=capture
+Group=capture
+
+# Add the 'dialout' group if using a serial port
+# (or ensure the user is in the dialout group)
+SupplementaryGroups=dialout
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ntripclient
+
+[Install]
+WantedBy=multi-user.target

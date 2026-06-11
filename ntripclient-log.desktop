@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NTRIP Client Log
+Comment=Show live ntripclient journal logs on startup
+# For LXDE/PIXEL desktop (uses lxterminal):
+Exec=lxterminal --title="NTRIP Client Service Log - Live Update" -e "journalctl -u ntripclient.service -f"
+# If using a Wayland/labwc desktop (Bookworm+), you may need to use xterm:
+# Exec=xterm -title "NTRIP Client Log" -e "journalctl -u ntripclient.service -f"
+X-GNOME-Autostart-enabled=true
