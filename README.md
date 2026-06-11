@@ -2,7 +2,7 @@
 
 How to setup the ntrip service to feed RTCM messages to the OxTS unit on the Twizy Vehicle
 
-**Step 0:** install pi + add user ``capture`` as default
+**Step 0:** install OS (Rasberry Pi or Ubuntu) + add user ``capture`` as default
 
 **Step 1:** Install Dependencies
 
@@ -32,7 +32,7 @@ sudo chmod 600 /etc/ntripclient/ntripclient.env
 sudo chown root:root /etc/ntripclient/ntripclient.env
 ```
 
-** step 4:** setup daemon service to run as user pi
+**Step 4:** setup daemon service to run as user pi
 
 ```
 sudo cp ntripclient.service /etc/systemd/system/ntripclient.service
@@ -66,6 +66,8 @@ sudo journalctl -u ntripclient.service --since "10 minutes ago"
 ```
 
 **Step 8:** setup autostart of terminal
+
+Edit file ``ntripclient-log.desktop`` to ``gnome-terminal`` from ``lxterminal`` if OS is Ubuntu 
 
 ```
 mkdir -p ~/.config/autostart
