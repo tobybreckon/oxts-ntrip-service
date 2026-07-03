@@ -1,8 +1,8 @@
-# NTRIP service setup for Twizy Vehicle
+# NTRIP service setup for OxTS 
 
-How to setup the ntrip service to feed RTCM messages to the OxTS unit on the Twizy Vehicle
+How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit (RT3000v3)
 
-**Step 0:** install OS (Rasberry Pi or Ubuntu) + add user ``capture`` as default
+**Step 0:** install OS (Rasberry Pi or Ubuntu) + add user ``capture`` (or alternative) as default
 
 **Step 1:** Install Dependencies
 
@@ -24,8 +24,8 @@ sudo make
 
 ```
 cd /tmp/
-git clone git@github.com:tobybreckon/twizy-ntrip-service.git
-cd twizy-ntrip-service
+git clone git@github.com:tobybreckon/oxts-ntrip-service.git
+cd oxts-ntrip-service
 sudo mkdir -p /etc/ntripclient
 sudo cp ntripclient.env /etc/ntripclient/
 sudo chmod 600 /etc/ntripclient/ntripclient.env
