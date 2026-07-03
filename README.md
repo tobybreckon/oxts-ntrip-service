@@ -1,8 +1,10 @@
 # NTRIP service setup for OxTS RT3000v3
 
-How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/)
+How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/) via serial line connection (on a Rasberry Pi or similar).
 
-**Step 0:** install OS (Rasberry Pi or Ubuntu) + add user ``capture`` (or alternative) as default
+[ **Step -1:** Ensure you have a correctly wired serial cable for the OxTS [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/) - because it is very much _not_ a standard RS-232 cable from our experience. ]
+
+**Step 0:** install OS (Rasberry Pi OS or Ubuntu depending on hardware) + add user ``capture`` (or alternative) as default
 
 **Step 1:** Install Dependencies
 
@@ -38,7 +40,7 @@ sudo chown root:root /etc/ntripclient/ntripclient.env
 < edit file /etc/ntripclient/ntripclient.env to the parameters for your ntrip service >
 ```
 
-Defaults are set for public [Durham University - Department of Computer Science](https://www.durham.ac.uk/computer.science/) RTK base station.
+Defaults are set for public [Durham University - Department of Computer Science](https://www.durham.ac.uk/computer.science/) RTK NTRIP base station at [rtk2go.com:DURHAM_UNI_CS_UK](http://rtk2go.com:2101/SNIP::MOUNTPT?baseName=DURHAM_UNI_CS_UK).
 
 **Step 4:** setup daemon service to run as user capture (or your alternative used earlier)
 ```
@@ -96,3 +98,18 @@ sudo systemctl disable ntripclient.service
 # Check if enabled at boot
 sudo systemctl is-enabled ntripclient.service
 ```
+
+**References:**
+
+This was used to support the following research work (and in fact only works thanks in no small part to the sheer perseverance and patience of lead/co-author [Wenke (Tom) E](https://github.com/Tom-E-Durham) with a whole bunch of unforseen hardware challenges!):
+
+
+1. [Dur360BEV: A Real-world 360-degree Single Camera Dataset and Benchmark for Bird-Eye View Mapping in Autonomous Driving](https://github.com/Tom-E-Durham/Dur360BEV) (W. E, C. Yuan, Y. Sun, Y.F.A. Gaus, A. Atapour-Abarghouei, T.P. Breckon), In Proc. Int. Conf. on Robotics and Automation, IEEE, pp. 3737-3744, 2025.
+
+2. [DurTOMD: A Trail-based Off-road Multimodal Dataset for Traversable Pathway Segmentation under Challenging Illumination Conditions](https://github.com/yyyxs1125/TOMD) (Y. Sun, L. Li, W. E, A. Atapour-Abarghouei, T.P. Breckon), In Proc. Int. Joint Conf. on Neural Networks, IEEE, pp. 1-8, 2025.
+
+2. [KD360-VoxelBEV: LiDAR and 360-degree Camera Cross Modality Knowledge Distillation for Bird’s-Eye-View Segmentation](https://github.com/Tom-E-Durham/KD360-VoxelBEV) (W. E, Y. Sun, J. Liu, H.P.H. Shum, A. Atapour-Abarghouei, T.P. Breckon), In Proc. Winter Applications of Computer Vision, CVF/IEEE, pp. 3483-3493, 2026.
+
+3. [Mind2Drive: Predicting Driver Intentions from EEG in Real-world On-Road Driving](https://github.com/galosaimi/Mind2Drive) (G. Alosaimi, H. Alhamdan, W. E, S. Katsigiannis, A. Atapour-Abarghouei, T.P. Breckon), In Proc. Int. Joint Conf. on Neural Networks, IEEE, 2026.
+
+Please reference the above if you are using this in your own work.
