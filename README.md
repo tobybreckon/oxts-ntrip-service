@@ -1,6 +1,6 @@
-# NTRIP service setup for OxTS 
+# NTRIP service setup for OxTS RT3000v3
 
-How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit (RT3000v3)
+How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/)
 
 **Step 0:** install OS (Rasberry Pi or Ubuntu) + add user ``capture`` (or alternative) as default
 
@@ -32,8 +32,15 @@ sudo chmod 600 /etc/ntripclient/ntripclient.env
 sudo chown root:root /etc/ntripclient/ntripclient.env
 ```
 
-**Step 4:** setup daemon service to run as user pi
+[ **Step 3a :** setup config ] 
 
+```
+< edit file /etc/ntripclient/ntripclient.env to the parameters for your ntrip service >
+```
+
+Defaults are set for public [Durham University - Department of Computer Science](https://www.durham.ac.uk/computer.science/) RTK base station.
+
+**Step 4:** setup daemon service to run as user capture (or your alternative used earlier)
 ```
 sudo cp ntripclient.service /etc/systemd/system/ntripclient.service
 sudo usermod -aG dialout capture
