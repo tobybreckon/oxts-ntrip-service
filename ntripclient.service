@@ -15,7 +15,11 @@ ExecStart=/opt/ntripclient/ntripclient \
     -p ${NTRIP_PASS} \
     -m ${NTRIP_MOUNTPOINT} \
     -D ${NTRIP_SERIAL_DEV} \
-    -B ${NTRIP_BAUD}
+    -B ${NTRIP_BAUD} \
+    -T ${NTRIP_STOPBITS} \
+    -Y ${NTRIP_PARITY} \
+    -A ${NTRIP_DATABITS} \
+    -C ${NTRIP_PROTOCOL}
 
 # Restart the service if it crashes or exits unexpectedly
 Restart=on-failure
