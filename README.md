@@ -2,7 +2,7 @@
 
 How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/) via serial line connection (on a Rasberry Pi or similar).
 
-[ **Preliminary Step:** Ensure you have a correctly wired serial cable for the OxTS [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/) - because it _not_ a standard RS-232 cable from our experience (see - https://support.oxts.com/hc/en-us/article_attachments/360007523840) and has an integrated +V supply carried over the serial line also. This is to power a radio modem configuration we presume but will not play well with a standard _"off the shelf"_ RS-232 / serial-to-USB setup to/from a PC or SBC from our experience. ]
+[ **Preliminary Step:** Ensure you have a correctly wired serial cable for the OxTS [RT3000v3](https://www.oxts.com/solutions/inertial-navigation-solutions/navigation-hardware/rt3000-v3/) - because it _not_ a standard RS-232 cable from our experience (see - https://support.oxts.com/hc/en-us/article_attachments/360007523840) and has an integrated +V supply carried over the serial line also. This is to power an attached radio modem configuration (we presume) but will not play well with a standard _"off the shelf"_ RS-232 / serial-to-USB setup to/from a PC or SBC from our experience. ]
 
 **Step 0:** install OS (Rasberry Pi OS or Ubuntu depending on hardware) + add user ``capture`` (or alternative) as default
 
@@ -74,7 +74,9 @@ sudo journalctl -u ntripclient.service -f
 sudo journalctl -u ntripclient.service --since "10 minutes ago"
 ```
 
-**Step 8:** setup autostart of terminal
+**Step 8:** setup autostart of terminal 
+
+This is not needed but useful if you want _"always on"_ on screen monitoring and will display startup/connectivity errors from the service and the feedback messages from the OxTS unit.
 
 Edit file ``ntripclient-log.desktop`` to ``gnome-terminal`` from ``lxterminal`` if OS is Ubuntu 
 
