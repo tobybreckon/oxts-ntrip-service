@@ -40,7 +40,7 @@ sudo chown root:root /etc/ntripclient/ntripclient.env
 < edit file /etc/ntripclient/ntripclient.env to the parameters for your ntrip service >
 ```
 
-Defaults are set for public [Durham University - Department of Computer Science](https://www.durham.ac.uk/computer.science/) RTK NTRIP base station at [rtk2go.com:DURHAM_UNI_CS_UK](http://rtk2go.com:2101/SNIP::MOUNTPT?baseName=DURHAM_UNI_CS_UK).
+Defaults are set for public [Durham University - Department of Computer Science](https://www.durham.ac.uk/computer.science/) RTK NTRIP base station with a NTRIP caster hosted via [rtk2go.com:DURHAM_UNI_CS_UK](http://rtk2go.com:2101/SNIP::MOUNTPT?baseName=DURHAM_UNI_CS_UK).
 
 **Step 4:** setup daemon service to run as user capture (or your alternative used earlier)
 ```
