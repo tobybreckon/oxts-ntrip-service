@@ -7,7 +7,12 @@ Wants=network-online.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/ntripclient/ntripclient.env
+
+# check networks is up first by checking DNS lookup on NTRIP server
 ExecCondition=host ${NTRIP_SERVER}
+
+# exec NTRIP client forcing http mode
+
 ExecStart=/opt/ntripclient/ntripclient \
     -M ${NTRIP_MODE} \
     -s ${NTRIP_SERVER} \
@@ -22,8 +27,8 @@ ExecStart=/opt/ntripclient/ntripclient \
     -A ${NTRIP_DATABITS} \
     -C ${NTRIP_PROTOCOL}
 
-# Restart the service if it crashes or exits unexpectedly
-Restart=on-failure
+# Restart the service if it crashes or exits unexpectedly; or if the ExecCondition fails
+Restart=always
 RestartSec=1s
 
 # Run as a non-privileged user (optional but recommended)
