@@ -7,8 +7,9 @@ Wants=network-online.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/ntripclient/ntripclient.env
-
+ExecCondition=host ${NTRIP_SERVER}
 ExecStart=/opt/ntripclient/ntripclient \
+    -M ${NTRIP_MODE} \
     -s ${NTRIP_SERVER} \
     -r ${NTRIP_PORT} \
     -u ${NTRIP_USER} \
