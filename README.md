@@ -15,6 +15,7 @@ How to setup an NTRIP service to feed RTCM messages into a OxTS GPS/IMU unit [RT
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y git cmake build-essential
+sudo apt install -y host
 ````
 
 **Step 2:** clone and build ntripclient
