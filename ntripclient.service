@@ -11,9 +11,9 @@ EnvironmentFile=/etc/ntripclient/ntripclient.env
 # check networks is up first by checking DNS lookup on NTRIP server
 ExecCondition=host ${NTRIP_SERVER}
 
-# exec NTRIP client forcing http mode
+# exec NTRIP client forcing http mode and with NMEA supression activated (-N)
 
-ExecStart=/opt/ntripclient/ntripclient \
+ExecStart=/opt/ntripclient/ntripclient -N \
     -M ${NTRIP_MODE} \
     -s ${NTRIP_SERVER} \
     -r ${NTRIP_PORT} \
