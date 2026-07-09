@@ -18,11 +18,11 @@ sudo apt install -y git cmake build-essential
 sudo apt install -y host
 ````
 
-**Step 2:** clone and build ntripclient
+**Step 2:** clone and build ntripclient (our customised version)
 
 ```
 cd /opt
-sudo git clone https://github.com/nunojpg/ntripclient.git
+sudo git clone https://github.com/tobybreckon/ntripclient.git
 cd ntripclient
 sudo make
 ```
