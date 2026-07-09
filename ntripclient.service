@@ -1,6 +1,6 @@
 [Unit]
 Description=NTRIP Client Service
-Documentation=https://github.com/nunojpg/ntripclient
+Documentation=https://github.com/tobybreckon/oxts-ntrip-service
 After=network-online.target
 Wants=network-online.target
 
