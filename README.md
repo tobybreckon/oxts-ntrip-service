@@ -79,7 +79,7 @@ sudo journalctl -u ntripclient.service -f
 sudo journalctl -u ntripclient.service --since "10 minutes ago"
 ```
 
-**Step 8:** setup autostart of terminal 
+**Step 8:** setup autostart of terminal (optional)
 
 This is not needed but useful if you want _"always on"_ on screen monitoring and will display startup/connectivity errors from the service and the feedback messages from the OxTS unit.
 
@@ -88,6 +88,18 @@ Edit file ``ntripclient-log.desktop`` to ``gnome-terminal`` from ``lxterminal`` 
 ```
 mkdir -p ~/.config/autostart
 cp ntripclient-log.desktop ~/.config/autostart/
+```
+
+**Step 9:** setup autostart of system monitor (optional)
+
+This is not needed but useful if you want _"always on"_ load and network monitoring
+
+Edit file ``sysmon.desktop`` to ``gnome-terminal`` from ``lxterminal`` if OS is Ubuntu 
+
+```
+sudo apt install -y btop
+mkdir -p ~/.config/autostart
+cp sysmon.desktop ~/.config/autostart/
 ```
 
 ---

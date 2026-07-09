@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=System Monitor
+Exec=lxterminal -e btop
+Terminal=true
