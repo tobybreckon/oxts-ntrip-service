@@ -4,6 +4,9 @@ Documentation=https://github.com/tobybreckon/oxts-ntrip-service
 After=network-online.target
 Wants=network-online.target
 
+# remove limit on restarts
+StartLimitBurst=0
+
 [Service]
 Type=simple
 EnvironmentFile=/etc/ntripclient/ntripclient.env
